@@ -1,0 +1,1737 @@
+В<89B >4> E<7A4?: BF C<>E9?9= > 5<F4@
+
+Видео — дисkретная пос;едовате;ьность изо6ражений, представ;яющая момента;ьные срезы сцены. Цифровое видео — это дисkретизация непрерывного оптичесkого сигна;а по пространству и времени.
+
+I[m, n, k] = I(xm, yn, tk)
+
+где x, y — шаги дисkретизации по пространству, t = 1/f — временной шаг. Дисkретизация в;ечëт оши6kу kвантования и ограничение по частоте Найkвиста.
+
+'4EFBF4 >44DB6 8 M>ECB78F8O
+
+ВD5@5AA4O 8AF5DD5D5AF8O
+
+++Каждый kадр формируется через оптичесkое интегрирование в течение времени затвора (shutter time). До;гая эkспозиция создаëт motion blur, kоротkая — рывkи при низkом FPS.
+
++
+
++
+
+Б4?4AE C4D4@5FDB6
+
+Видео с частотой 30 fps и затвором 1/60 с имеет переkрытие во времени — визуа;ьная п;авность. Ба;анс между FPS и эkспозицией опреде;яет SNR и динамичесkий диапазон kамеры.
+
+I[m, n, k] =
+
+1tk+Ts/2
+
+Tstk2Ts/2
+
+I(xm, yn, t) dt
+
+А?84E8=7: 8E>469=8O 88E>D9F874F88
+
+Пространственный а;иасингПри низkом разрешении возниkает мyар и ;ожные дета;иfx<   1 ,2Δxfy<   12ΔyПространственный а;иасингПри низkом разрешении возниkает мyар и ;ожные дета;иfx<   1 ,2Δxfy<   12ΔyВременной а;иасингНедостаточный FPS создаëт эффеkт«kо;ëс назад» — движение kажется реверсным при превышении f/2Временной а;иасингНедостаточный FPS создаëт эффеkт«kо;ëс назад» — движение kажется реверсным при превышении f/2РешениеАнтиа;иасинговые фи;ьтры (оптичесkие low-pass) и э;еkтронное сг;аживание сигна;а до оцифровkиРешениеАнтиа;иасинговые фи;ьтры (оптичесkие low-pass) и э;еkтронное сг;аживание сигна;а до оцифровkи
+
+Пространственный а;иасинг
+
+При низkом разрешении возниkает мyар и ;ожные дета;и
+
+f
+
+x
+
+<   1 ,
+
+2Δx
+
+f
+
+y
+
+<   1
+
+2Δy
+
+Пространственный а;иасинг
+
+При низkом разрешении возниkает мyар и ;ожные дета;и
+
+f
+
+x
+
+<   1 ,
+
+2Δx
+
+f
+
+y
+
+<   1
+
+2Δy
+
+Временной а;иасинг
+
+Недостаточный FPS создаëт эффеkт
+
+«kо;ëс назад» — движение kажется реверсным при превышении f/2
+
+Временной а;иасинг
+
+Недостаточный FPS создаëт эффеkт
+
+«kо;ëс назад» — движение kажется реверсным при превышении f/2
+
+Решение
+
+Антиа;иасинговые фи;ьтры (оптичесkие low-pass) и э;еkтронное сг;аживание сигна;а до оцифровkи
+
+Решение
+
+Антиа;иасинговые фи;ьтры (оптичесkие low-pass) и э;еkтронное сг;аживание сигна;а до оцифровkи
+
+CFR < VFR: G4EF>F4 >44D>6
+
+КD<F<G=> 4лO ML: VFR <>69B ;><4BP>5CG9=89 <>89;99 87-74=9@46=><9@=>7> stride <968C k48@4<8КD<F<G=> 4лO ML: VFR <>69B ;><4BP>5CG9=89 <>89;99 87-74=9@46=><9@=>7> stride <968C k48@4<8Д64 D56<<4
+
+
+[ИЗОБРАЖЕНИЕ 1: image1.png]
+Изображение представляет собой значок, похожий на пустую заметку или страницу документа.
+
+*   **Форма:** Значок имеет квадратную форму с небольшим прямоугольным вырезом в правом нижнем углу. Этот вырез добавляет ощущение "страницы", на которой оторван уголок.
+
+*   **Цвета:** Значок состоит из двух цветов: белый внутренний квадрат и темно-красная/бордовая граница.
+
+*   **Содержание:** Внутреннее пространство значка полностью белое и пустое.
+
+
+КD<F<G=> 4лO ML: VFR <>69B ;><4BP
+
+>5CG9=89 <>89;99 87-74
+
+=9@46=><9@=>7> stride <968C k48@4<8
+
+КD<F<G=> 4лO ML: VFR <>69B ;><4BP
+
+>5CG9=89 <>89;99 87-74
+
+=9@46=><9@=>7> stride <968C k48@4<8
+
+CFR (Constant Frame Rate) 4 k48@O G9@97 @46=O9 8=B9@64;O t = 1/f
+
+
+[ИЗОБРАЖЕНИЕ 2: image2.png]
+Конечно, вот описание изображения:
+
+На изображении представлен черный круг с размытыми краями, переходящими в белый цвет. Круг расположен в центре изображения. Создается эффект свечения или размытия вокруг черного круга. Текста, диаграмм, графиков или схем на изображении нет.
+
+VFR (Variable Frame Rate) 4 8=B9@64;O @47;8G4NBAO, k468O9 k48@ 8<99B PTS
+
+
+[ИЗОБРАЖЕНИЕ 3: image2.png]
+На изображении представлен черный круг с размытыми краями, создающими эффект свечения вокруг него. Границы круга неровные, угловатые, что придает ему вид стилизованного или пиксельного изображения. Фон вокруг фигуры не виден, предполагая либо однотонный фон того же цвета, что и область вокруг круга, либо его отсутствие.
+
+П4@4<9B@ timebase 7484ëB 988=8FC 6@9<9=8 6=CB@8 k>=B99=9@4 (=4п@8<9@, 1/90000 8;O MPEG-TS).
+
+PTS
+
+t =
+
+timebase
+
+PTS, DTS < 6D5<5==O5 <5F><
+
+1212
+
+1
+
+2
+
+1
+
+2
+
+PTS
+
+Presentation Timestamp 4 >B784 >48D 8B?69A 5OFP BFB5D46ëA
+
+DTS
+
+Decoding Timestamp 4 >B784 >48D 8B?69A 5OFP 89>B88DB64A. Д?O B->48DB6: DTS < PTS
+
+3434
+
+3
+
+4
+
+3
+
+4
+
+Latency
+
+З489D6>4 @968G 74E64FB@ 8 BFB5D469A89@
+
+Jitter
+
+В4D84F8O 7489D6>8
+
+L = tdisplay
+
+2 tcapture
+
+1
+
+J =N
+
+3(Li 2 LË)2
+
+i
+
+GOP-AB@C>BC@4
+
+Group of Pictures
+
+ПBE?98B64F9?PABEFP BF I->48D4 8B E?98GNM97B I->48D4. P- 8 B-
+
+>48DO EEO?4NFEO A4 8DG789 >48DO, EB78464O 7489D6>G 89>B88DB64A8O.
+
+ПD8 GOP = 30 8 FPS = 30 7489D6>4 EBEF46?O9F ~1 E9>GA8G @968G 74E64FB@ 8 BFB5D469A89@.
+
+Н87>>?4B5=B=O5 п@8?>65=8O
+
+Д?O 6889B4A4?8F8>8 6 D94?PAB@ 6D9@9A8 GOP EB>D4M4NF 8?8 8ECB?P7GNF D968@ intra-only (H.264 All-I).
+
+В?ияние параметров съëмки
+
+VFR < B5GG9A<9П9D9@9AA4S G4EFBF4 >48DB6 ?B@49F@B89?< action recognition 4 stride @968G >48D4@< EF4AB6<FES A9B8ABDB8AO@VFR < B5GG9A<9П9D9@9AA4S G4EFBF4 >48DB6 ?B@49F@B89?< action recognition 4 stride @968G >48D4@< EF4AB6<FES A9B8ABDB8AO@Motion blurСA<649F QDD9>F<6ABEFP 89F9>FBDB6 7D4A<F, AB G?GGH49F B5GG9A<9 @B89?9= BCF<G9E>B7B CBFB>4Motion blurСA<649F QDD9>F<6ABEFP 89F9>FBDB6 7D4A<F, AB G?GGH49F B5GG9A<9 @B89?9= BCF<G9E>B7B CBFB>4K4@9D4 >4> Q?9@9AF E<EF9@OП4D4@9FDO ENë@>< 6?<SRF A4>4G9EF6B 84AAOE 8?S A9=DBE9F9= 4>4@9D4 A9 CDBEFB 84FG<>K4@9D4 >4> Q?9@9AF E<EF9@OП4D4@9FDO ENë@>< 6?<SRF A4>4G9EF6B 84AAOE 8?S A9=DBE9F9= 4>4@9D4 A9 CDBEFB 84FG<>
+
+VFR < B5GG9A<9
+
+П9D9@9AA4S G4EFBF4 >48DB6 ?B@49F
+
+@B89?< action recognition 4 stride @968G >48D4@< EF4AB6<FES A9B8ABDB8AO@
+
+VFR < B5GG9A<9
+
+П9D9@9AA4S G4EFBF4 >48DB6 ?B@49F
+
+@B89?< action recognition 4 stride @968G >48D4@< EF4AB6<FES A9B8ABDB8AO@
+
+Motion blur
+
+СA<649F QDD9>F<6ABEFP 89F9>FBDB6 7D4A<F, AB G?GGH49F B5GG9A<9 @B89?9= BCF<G9E>B7B CBFB>4
+
+Motion blur
+
+СA<649F QDD9>F<6ABEFP 89F9>FBDB6 7D4A<F, AB G?GGH49F B5GG9A<9 @B89?9= BCF<G9E>B7B CBFB>4
+
+K4@9D4 >4> Q?9@9AF E<EF9@O
+
+П4D4@9FDO ENë@>< 6?<SRF A4
+
+>4G9EF6B 84AAOE 8?S A9=DBE9F9= 4
+
+>4@9D4 A9 CDBEFB 84FG<>
+
+K4@9D4 >4> Q?9@9AF E<EF9@O
+
+П4D4@9FDO ENë@>< 6?<SRF A4
+
+>4G9EF6B 84AAOE 8?S A9=DBE9F9= 4
+
+>4@9D4 A9 CDBEFB 84FG<>
+
+Метрики качества видео
+
+PSNRPeak Signal-to-Noise RatioMAX2MSEВOA>k89 PSNR (> 40 dB) 4 п>GB8 8454;P=>5 6>Aп@>876545=85PSNR = 10 log10 IPSNRPeak Signal-to-Noise RatioMAX2MSEВOA>k89 PSNR (> 40 dB) 4 п>GB8 8454;P=>5 6>Aп@>876545=85PSNR = 10 log10 ISSIMStructural Similarity IndexSSIM =(2¿x¿y + c1)(2Ãxy + c2)(¿2 + ¿2 + c1)(Ã2 + Ã2 + c2)xyxyОF5=8645B AB@CkBC@=>5 AE>4AB6>SSIMStructural Similarity IndexSSIM =(2¿x¿y + c1)(2Ãxy + c2)(¿2 + ¿2 + c1)(Ã2 + Ã2 + c2)xyxyОF5=8645B AB@CkBC@=>5 AE>4AB6>VMAFVideo Multimethod Assessment Fusion (Netflix)V MAF =f (PSNR, SSIM , V IF , DLM )ЛCGH5 k>@@5;8@C5B A G5;>65G5Ak8<6>Aп@8OB85<VMAFVideo Multimethod Assessment Fusion (Netflix)V MAF =f (PSNR, SSIM , V IF , DLM )ЛCGH5 k>@@5;8@C5B A G5;>65G5Ak8<6>Aп@8OB85<
+
+
+[ИЗОБРАЖЕНИЕ 4: image3.png]
+На изображении представлен однородный белый фон. На нем нет текста, диаграмм, графиков или каких-либо других элементов. Изображение полностью состоит из белого цвета.
+
+
+PSNR
+
+Peak Signal-to-Noise Ratio
+
+MAX2
+
+MSE
+
+ВOA>k89 PSNR (> 40 dB) 4 п>GB8 8454;P=>5 6>Aп@>876545=85
+
+PSNR = 10 log10 I
+
+PSNR
+
+Peak Signal-to-Noise Ratio
+
+MAX2
+
+MSE
+
+ВOA>k89 PSNR (> 40 dB) 4 п>GB8 8454;P=>5 6>Aп@>876545=85
+
+PSNR = 10 log10 I
+
+SSIM
+
+Structural Similarity Index
+
+SSIM =
+
+(2¿x¿y + c1)(2Ãxy + c2)
+
+(¿2 + ¿2 + c1)(Ã2 + Ã2 + c2)
+
+x
+
+y
+
+x
+
+y
+
+ОF5=8645B AB@CkBC@=>5 AE>4AB6>
+
+SSIM
+
+Structural Similarity Index
+
+SSIM =
+
+(2¿x¿y + c1)(2Ãxy + c2)
+
+(¿2 + ¿2 + c1)(Ã2 + Ã2 + c2)
+
+x
+
+y
+
+x
+
+y
+
+ОF5=8645B AB@CkBC@=>5 AE>4AB6>
+
+VMAF
+
+Video Multimethod Assessment Fusion (Netflix)
+
+V MAF =
+
+f (PSNR, SSIM , V IF , DLM )
+
+ЛCGH5 k>@@5;8@C5B A G5;>65G5Ak8<
+
+6>Aп@8OB85<
+
+VMAF
+
+Video Multimethod Assessment Fusion (Netflix)
+
+V MAF =
+
+f (PSNR, SSIM , V IF , DLM )
+
+ЛCGH5 k>@@5;8@C5B A G5;>65G5Ak8<
+
+6>Aп@8OB85<
+
+Bремя как измерение
+
+Д;я kомпьютерного зрения видео до6ав;яет ещë одно измерение — время. Темпора;ьные связи становятся равноправными пространственным.
+
+Моде;ь, спосо6ная выде;ять регу;ярности по оси t, понимает действие, а не просто форму.
+
+Видео — это не просто много kартиноk, а сигна;, где время несëт информацию. 3та интуиция важна д;я всей современной видеоана;итиkи.
+
+Ot RGB k Y'CbCr
+
+Идея деkорре?яции
+
+RGB->B@CBA9AFO E8?PAB >BDD9?8DB64AO: 87@9A9A89 SD>BEF8 6?8S9F A4 6E9 FD8 >4A4?4. П9D9EB8 > Y2CbCr D4789?S9F SD>BEFP 8 F69F.
+
+Y2 4 SD>BEFP (luma)
+
+
+[ИЗОБРАЖЕНИЕ 5: image2.png]
+Изображение представляет собой черный круг с размытыми краями. Четкой границы круга не видно, контур размыт, переходя в серый цвет по краям. Фон изображения светлый (возможно, белый или светло-серый), что позволяет контрастно выделять силуэт круга. В целом, изображение выглядит достаточно минималистично и может использоваться в качестве иконки или графического элемента.
+
+Cb, Cr 4 BF>?BA9A8S BF E9DB7B 6 E8A9@ 8 >D4EAB@ A4CD46?9A8SE
+
+
+[ИЗОБРАЖЕНИЕ 6: image2.png]
+На изображении представлен темный круг с размытыми краями.  В центре у круга насыщенный черный цвет, который постепенно переходит в серый, а затем в белый у краев. Форма круга слегка искажена, напоминая пиксельный эффект. Изображение минималистичное и не содержит текста или других элементов, кроме этого круга.
+
+
+Прео6разование BT.709
+
+Y 2
+
+Cb=
+
+Cr
+
+0.2126
+
+20.1146
+
+0.7152
+
+20.3854
+
+0.0722
+
+0.5000
+
+R
+
+G
+
+0.5000
+
+20.4542
+
+20.0458
+
+B
+
+КBQDD8F89AFO BFD464RF GG6EF68F9?PABEFP 7D9A8S > F69F4@
+
+О6ратное прео6разование Y'CbCr * RGB
+
+Восстанов;ение RGB-kомпонент выпо;няется по о6ратному прео6разованию:
+
+R1.000
+
+G=1.000
+
+B1.000
+
+0.000
+
+20.1873
+
+1.8556
+
+1.5748Y 2
+
+20.4681Cb
+
+0.000Cr
+
+Важно: При несовпадении матрицы kодирования и деkодирования возниkают оши6kи цветопередачи — зе;ëные участkи прио6ретают пурпурный оттеноkВажно: При несовпадении матрицы kодирования и деkодирования возниkают оши6kи цветопередачи — зе;ëные участkи прио6ретают пурпурный оттеноk
+
+
+[ИЗОБРАЖЕНИЕ 7: image5.png]
+Изображение представляет собой белый прямоугольник с небольшим скошенным углом в правом нижнем углу, обведенный толстой красной линией. Красная линия неровная и имеет размытые края. Фигура выглядит минималистично и может быть стилизованным изображением документа или страницы.
+
+
+Важно: При несовпадении матрицы kодирования и деkодирования возниkают оши6kи цветопередачи — зе;ëные участkи прио6ретают пурпурный оттеноk
+
+Важно: При несовпадении матрицы kодирования и деkодирования возниkают оши6kи цветопередачи — зе;ëные участkи прио6ретают пурпурный оттеноk
+
+Стандарты цветовых пространств
+
+BT.601
+
+SD-видео (720×576). 3поха стандартной чëтkости
+
+BT.2020
+
+UHD и HDR. Расширенный цветовой охват д;я 6о;ее насыщенных оттенkов
+
+123123
+
+1
+
+2
+
+3
+
+1
+
+2
+
+3
+
+BT.709
+
+HD-видео. Стандарт д;я HDTV, испо;ьзуется в 6о;ьшинстве нейросетевых моде;ей
+
+Несоответствие стандартов приводит k систематичесkим сдвигам в распреде;ении пиkсе;ей. На этапе препроцессинга важно норма;изовать видео в единый цветовой стандарт.
+
+Хромаса6сэмп?инг
+
+4:4:4
+
+4:2:2
+
+4:2:0
+
+По;ное разрешение
+
+Bсе kомпоненты хранятся с одинаkовым разрешением
+
+По;овинное по горизонта;и
+
+Цветовые kана;ы имеют по;овинное горизонта;ьное разрешение
+
+По;овинное по о6еим осям
+
+Hа 4 пиkсе;я — одна пара Cb/Cr. Үменьшает о6ъëм данных вдвое
+
+Че;овечесkий г;аз чувствите;ен k ярkости 6о;ьше, чем k цвету. Д;я задач сегментации предпочтите;ьно испо;ьзовать 4:4:4.
+
+Гамма-коррекция
+
+Для нейросетей: Бо;ьшинство моде;ей о6учены на;инейных RGB. Данные из sRGB и;и BT.709 нужно«разгаммировать» — возвести пиkсе;и в степень ³Для нейросетей: Бо;ьшинство моде;ей о6учены на;инейных RGB. Данные из sRGB и;и BT.709 нужно«разгаммировать» — возвести пиkсе;и в степень ³Перцептивное кодирование
+
+
+[ИЗОБРАЖЕНИЕ 8: image1.png]
+Изображение представляет собой логотип или иконку, которая выглядит как белый квадратно-трапециевидный элемент с небольшим вырезом в нижнем правом углу. Этот белый элемент обведен темно-красной, размытой рамкой, повторяющей его форму. Создается эффект трехмерности, как будто геометрически форма с закруглениями. 
+
+На изображении нет текста. Это исключительно графическое представление.
+
+
+Для нейросетей: Бо;ьшинство моде;ей о6учены на
+
+;инейных RGB. Данные из sRGB и;и BT.709 нужно
+
+«разгаммировать» — возвести пиkсе;и в степень ³
+
+Для нейросетей: Бо;ьшинство моде;ей о6учены на
+
+;инейных RGB. Данные из sRGB и;и BT.709 нужно
+
+«разгаммировать» — возвести пиkсе;и в степень ³
+
+Сенсор измеряет свет ;инейно, но восприятие не;инейно. Гамма-kорреkция перераспреде;яет уровни ярkости:
+
+VVVout =
+
+V
+
+V
+
+1/g in
+
+где ³ = 2.2 д;я 6о;ьшинства дисп;еев
+
+Б<F>64O 7?G5<=4 < >64=F>64=<5
+
+8 bit8 bit10 bit10 bit12 bit12 bit
+
+
+[ИЗОБРАЖЕНИЕ 9: image6.png]
+Изображение представляет собой белую окружность. Круг имеет небольшую прозрачность. В остальном на изображении нет других элементов, текста или диаграмм.
+
+8 bit
+
+8 bit
+
+10 bit
+
+10 bit
+
+12 bit
+
+12 bit
+
+256 C@>6=99 O@k>AB8. СB4=84@B 8;O
+
+5>;PH8=AB64 84B4A9B>6 CV
+
+1024 C@>6=O. ИAп>;P7C9BAO 6 HDR,
+
+<9=PH9 banding-QDD9kB>6
+
+4096 C@>6=99. М4kA8<4;P=4O B>G=>ABP
+
+8;O п@>D9AA8>=4;P=>7> 6889>
+
+К>;8G9AB6> C@>6=99: 2b, 789 b 4 58B>64O 7;C58=4. ВOA>k4O 58B=>ABP п>76>;O9B 6>Aп@>876>88BP 89B4;8 6 B9=OE 8 A69B4E.
+
+Конвертация YUV * RGB через PyAV
+
+import avimport numpy as npcontainer = av.open("video.mp4")for frame in container.decode(video=0): rgb = frame.to_rgb().to_ndarray()yuv  =  frame.to_ndarray(format="yuv420p")# rgb: H×W×3, yuv: packed planar arrayimport avimport numpy as npcontainer = av.open("video.mp4")for frame in container.decode(video=0): rgb = frame.to_rgb().to_ndarray()yuv  =  frame.to_ndarray(format="yuv420p")# rgb: H×W×3, yuv: packed planar array
+
+import av
+
+import numpy as np
+
+container = av.open("video.mp4")
+
+for frame in container.decode(video=0): rgb = frame.to_rgb().to_ndarray()
+
+yuv  =  frame.to_ndarray(format="yuv420p")
+
+# rgb: H×W×3, yuv: packed planar array
+
+import av
+
+import numpy as np
+
+container = av.open("video.mp4")
+
+for frame in container.decode(video=0): rgb = frame.to_rgb().to_ndarray()
+
+yuv  =  frame.to_ndarray(format="yuv420p")
+
+# rgb: H×W×3, yuv: packed planar array
+
+to_rgb()to_rgb()М9FB86OCB?AO9F 89>B88DB64A89 E GGëFB@ @4FD8FO CD9B5D47B64A8O (BT.709/601) 8 EDB@4E45EM@C?8A74.
+
+to_rgb()
+
+to_rgb()
+
+О59EC9G8649F >BDD9>FAB9 CD98EF46?9A89 F69FB6.
+
+&65F>6O5 4DF5D4>FO
+
+Неправи;ьная деkодировkа цветового пространства спосо6на радиkа;ьно исkазить распреде;ение данных
+
+Перепутанные матрицы BT.601 µBT.709 создают зе;ëный оттеноk, kоторый моде;и интерпретируют kаk новый k;асс теkстуры.
+
+15-20%
+
+Снижение точности
+
+При неправи;ьной деkодировkе в action recognition
+
+-color_primaries-color_primaries-color_trc-color_trcB продаkшене деkодирование выпо;няется строго по метаданным kонтейнера с явным уkазаниеми в FFmpeg.
+
+-color_primaries
+
+-color_primaries
+
+-color_trc
+
+-color_trc
+
+HDR < @4AL<@5==O5 F65B>6O5 п@>AB@4=AB64
+
+С>6@5<5==O5 AB4=44@BO
+
+HDR10, Dolby Vision испо;ьзуют расширенные цветовые охваты BT.2020 и PQ (Perceptual Quantizer) kривые.
+
+Д;я нейросетевых систем с о6ычными мониторами таkие видео нео6ходимо kонвертировать в sRGB.
+
+O5@45>B>4 HDR
+
+Оши6очная о6ра6отkа HDR-данных (прямое чтение PQ- kодированных значений) приводит k потере kонтраста и инверсии цветов.
+
+Тре6уется по;ный kонверт в ;инейное пространство и;и о6учение моде;и на том же цветовом профи;е.
+
+Контейнер и кодек
+
+КBAF9=A9D$BD@4F ED4A9A<O < @G?PF<C?9>E<DB64A<O CBFB>B6: 6<89B, 4G8<B, EG5F<FDB6, @9F484AAOEПримеры: MP4, MKV, MOV, AVI, MPEG-TSКBAF9=A9D$BD@4F ED4A9A<O < @G?PF<C?9>E<DB64A<O CBFB>B6: 6<89B, 4G8<B, EG5F<FDB6, @9F484AAOEПримеры: MP4, MKV, MOV, AVI, MPEG-TSКB89>А?7BD<F@ >B8<DB64A<O < 89>B8<DB64A<O 6<89BCBE?98B64F9?PABEF<Примеры: H.264/AVC, H.265/HEVC, VP9, AV1, H.266/VVCКB89>А?7BD<F@ >B8<DB64A<O < 89>B8<DB64A<O 6<89BCBE?98B64F9?PABEF<Примеры: H.264/AVC, H.265/HEVC, VP9, AV1, H.266/VVC
+
+КBAF9=A9D
+
+$BD@4F ED4A9A<O < @G?PF<C?9>E<DB64A<O CBFB>B6: 6<89B, 4G8<B, EG5F<FDB6, @9F484AAOE
+
+Примеры: MP4, MKV, MOV, AVI, MPEG-TS
+
+КBAF9=A9D
+
+$BD@4F ED4A9A<O < @G?PF<C?9>E<DB64A<O CBFB>B6: 6<89B, 4G8<B, EG5F<FDB6, @9F484AAOE
+
+Примеры: MP4, MKV, MOV, AVI, MPEG-TS
+
+КB89>
+
+А?7BD<F@ >B8<DB64A<O < 89>B8<DB64A<O 6<89BCBE?98B64F9?PABEF<
+
+Примеры: H.264/AVC, H.265/HEVC, VP9, AV1, H.266/VVC
+
+КB89>
+
+А?7BD<F@ >B8<DB64A<O < 89>B8<DB64A<O 6<89BCBE?98B64F9?PABEF<
+
+Примеры: H.264/AVC, H.265/HEVC, VP9, AV1, H.266/VVC
+
+Контейнер — «упаkовkа», kодеk — «языk». Один kонтейнер может содержать потоkи разных kодеkов. Проверяйте fourcc-kодеk в метаданных!
+
+В=GFD<>44D>6>5 < <56>44D>6>5 E64F<5
+
+1212
+
+1
+
+2
+
+1
+
+2
+
+Intra-frame
+
+Үстранение пространственной из6ыточности внутри kадра. Ана;огично JPEG: DCT + kвантование + энтропийное kодирование
+
+Inter-frame
+
+Үстранение временной из6ыточности между kадрами. Предсkазание движения: новый kадр = отk;онение от предыдущего + веkтор движения
+
+Межkадровое сжатие снижает о6ъëм данных в десятkи раз, но де;ает потоk зависимым от предшествующих kадров.
+
+Типы кадров: I, P, B
+
+
+[ИЗОБРАЖЕНИЕ 10: image9.png]
+На изображении представлен стилизованный контур цветка или плода, возможно, шишки хмеля. Он состоит из нескольких слоев заостренных лепестков или сегментов, образующих округлую форму с заостренной вершиной. Сверху от этой округлой формы отходит вертикальная линия, напоминающая стебель. Изображение выполнено простыми контурами, без заливки и деталей.
+
+
+>48DO (Intra)
+
+Н97468E8@O9, CB?AB9 87B5D469A89. ТBG>8 6EB84 6 CBFB>
+
+P->48DO (Predicted)
+
+КB88DGRFES >4> D47A8F4 E CD98O8GM8@ I/P >48DB@
+
+B->48DO (Bi-predicted)
+
+ИAF9DCB?SF8S @968G CD98O8GM8@ 8 CBE?98GRM8@ >48DB@. ВOEB>4S QDD9>F86ABEFP, AB 7489D6>4
+
+ПBDS8B> BFB5D469A8S b CBDS8B> 89>B88DB64A8S. ТD95G9FES 5GD9D874F8S (DPB). Д?S D94?PAB7B 6D9@9A8 G4EFB 6O58D4RF GOP 597 B->48DB6.
+
+GOP-сtpyktypa
+
+Group of Pictures
+
+Пос;едовате;ьность от одного I-kадра до с;едующего. Пример:
+
+IBBPBBPBBIIBBPBBPBBI
+
+IBBPBBPBBI
+
+IBBPBBPBBI
+
+Чем д;иннее GOP, тем выше степень межkадрового сжатия и 6о;ьше задержkа при деkодировании.
+
+Компpомисс
+
+При GOP=60 kодеk ссы;ается на kадры, отстоящие на 2 сеkунды — неприем;емо д;я систем с ограничением latency.
+
+B видеоана;итиkе: kоротkий GOP (8–12) и;и All-Intra
+
+Rate–Distortion kомпромисс
+
+Оптимизация kодеkа — минимизация фунkции:
+
+F = D + λÆ
+
+где R — средний 6итрейт (6ит/с), D — среднее исkажение (MSE), » — параметр kомпромисса
+
+Кривая зависимости 6итрейта от исkажений:
+
+Æ(D) j α log 1
+
+D
+
+B реа;ьных системах kонтро;ируется через CRF (Constant Rate Factor) и;и QP (Quantization Parameter): уменьшение QP повышает kачество, но уве;ичивает 6итрейт эkспоненциа;ьно.
+
+Основные кодеки
+
+H.264/AVC
+
+Промыш;енный стандарт. Аппаратная поддержkа везде,
+
+kомпрессия 1:50
+
+VP9
+
+Отkрытая а;ьтернатива H.265 от Google, испо;ьзуется в
+
+YouTube
+
+H.266/VVC
+
+Д;я 8K и HDR, до 100× сжатие. Tре6ует аппаратной поддержkи
+
+H.265/HEVC
+
+1234512345Hа 30–40% ;учше сжатие, но в 5–10 раз 6о;ьше вычис;ений
+
+1
+
+2
+
+3
+
+4
+
+5
+
+1
+
+2
+
+3
+
+4
+
+5
+
+AV1
+
+Прирост эффеkтивности до 50% относите;ьно H.264. Аkтивно внедряется
+
+Парамеtры FFmpeg
+
+Кодирование H.264
+
+ffmpeg -i input.mp4 -c:v libx264 \-preset slow -crf 22 -g 12 \-pix_fmt yuv420p -profile:v high \ output.mp4ffmpeg -i input.mp4 -c:v libx264 \-preset slow -crf 22 -g 12 \-pix_fmt yuv420p -profile:v high \ output.mp4-g-g-crf 4 >B@CDB@<EE >4G5EF6B/5<FD5=F (@5APH5 = ?GGH5) 4 4?<A4 GOP
+
+
+[ИЗОБРАЖЕНИЕ 11: image11.png]
+Изображение представляет собой серый квадрат, который занимает почти всю область видимости. Углы немного закруглены. На изображении нет текста, диаграмм, графиков или схем. Фон белый.
+
+
+ffmpeg -i input.mp4 -c:v libx264 \
+
+-preset slow -crf 22 -g 12 \
+
+-pix_fmt yuv420p -profile:v high \ output.mp4
+
+ffmpeg -i input.mp4 -c:v libx264 \
+
+-preset slow -crf 22 -g 12 \
+
+-pix_fmt yuv420p -profile:v high \ output.mp4
+
+-g
+
+-g
+
+-preset-preset4 E>BDBEFP >B4<DB64A<O
+
+-preset
+
+-preset
+
+-profile <-profile <-level-level4 EB6@5EF<@BEFP E 4CC4D4FAO@ 45>B45DB@
+
+-profile <
+
+-profile <
+
+-level
+
+-level
+
+Кодирование AV1
+
+ffmpeg -i input.mp4 -c:v libaom-av1 \-crf 30 -b:v 0 -row-mt 1 output.mkvffmpeg -i input.mp4 -c:v libaom-av1 \-crf 30 -b:v 0 -row-mt 1 output.mkv
+
+ffmpeg -i input.mp4 -c:v libaom-av1 \
+
+-crf 30 -b:v 0 -row-mt 1 output.mkv
+
+ffmpeg -i input.mp4 -c:v libaom-av1 \
+
+-crf 30 -b:v 0 -row-mt 1 output.mkv
+
+Артефакты компрессии
+
+Типы искажений
+
+Б;оkовые границы
+
+
+[ИЗОБРАЖЕНИЕ 12: image2.png]
+На изображении представлено черное пятно в форме круга с размытыми краями. Края пятна имеют ступенчатую структуру, что говорит о низком разрешении изображения или пикселизации. Пятно расположено в центре кадра.
+
+
+Ringing (звон воkруг kонтуров) Размытые дета;и
+
+
+[ИЗОБРАЖЕНИЕ 13: image2.png]
+Изображение представляет собой круг, закрашенный черным цветом. Вокруг круга есть размытый, градиентный ореол, который переходит от черного к белому. Создается впечатление, что круг является центром внимания, а размытие вокруг него подчеркивает эту центральность.
+
+
+Потеря теkстур
+
+
+[ИЗОБРАЖЕНИЕ 14: image2.png]
+Изображение представляет собой чёрный круг с размытыми или ступенчато-пикселизованными краями, которые переходят в белый фон. Центральная часть круга полностью чёрная.
+
+В?ияние на CV-моде?и
+
+Д;я свëрточных сетей артефаkты исkажают распреде;ение признаkов. Б;оkовые паттерны интерпретируются kаk струkтура, а не шум.
+
+При о6учении реkомендуется испо;ьзовать одинаkовые параметры сжатия д;я train/test.
+
+ОF5A>4 >4G5EF64 >B@CD5EE88
+
+ВOG8E?5A85 PSNR G5D57 FFmpeg
+
+ffmpeg -i ref.mp4 -i test.mp4 \-lavfi psnr="stats_file=psnr.log" \-f null -ffmpeg -i ref.mp4 -i test.mp4 \-lavfi psnr="stats_file=psnr.log" \-f null -
+
+ffmpeg -i ref.mp4 -i test.mp4 \
+
+-lavfi psnr="stats_file=psnr.log" \
+
+-f null -
+
+ffmpeg -i ref.mp4 -i test.mp4 \
+
+-lavfi psnr="stats_file=psnr.log" \
+
+-f null -
+
+ВOG8E?5A85 PSNR 6 Python
+
+import cv2, numpy as npdef psnr(a, b):mse = np.mean((a.astype(np.float32) - b.astype(np.float32)) ** 2)return 10 * np.log10((255 ** 2) / mse)import cv2, numpy as npdef psnr(a, b):mse = np.mean((a.astype(np.float32) - b.astype(np.float32)) ** 2)return 10 * np.log10((255 ** 2) / mse)
+
+import cv2, numpy as np
+
+def psnr(a, b):
+
+mse = np.mean((a.astype(np.float32) - b.astype(np.float32)) ** 2)
+
+return 10 * np.log10((255 ** 2) / mse)
+
+import cv2, numpy as np
+
+def psnr(a, b):
+
+mse = np.mean((a.astype(np.float32) - b.astype(np.float32)) ** 2)
+
+return 10 * np.log10((255 ** 2) / mse)
+
+ВOG8E?5A85 VMAF
+
+ffmpeg -i ref.mp4 -i test.mp4 \-lavfi libvmaf="model_path=vmaf_v0.6.1.json" \-f null -ffmpeg -i ref.mp4 -i test.mp4 \-lavfi libvmaf="model_path=vmaf_v0.6.1.json" \-f null -
+
+ffmpeg -i ref.mp4 -i test.mp4 \
+
+-lavfi libvmaf="model_path=vmaf_v0.6.1.json" \
+
+-f null -
+
+ffmpeg -i ref.mp4 -i test.mp4 \
+
+-lavfi libvmaf="model_path=vmaf_v0.6.1.json" \
+
+-f null -
+
+Архитектура дему?ьтип?ексора
+
+123123
+
+1
+
+2
+
+3
+
+1
+
+2
+
+3
+
+Demuxer
+
+Изв;еkает из kонтейнера отде;ьные потоkи: видео, аудио, су6титры, метаданные
+
+Parser
+
+Раз6ирает паkеты по границам kадров (NAL units, GOP, keyframe)
+
+Decoder
+
+Восстанав;ивает пиkсе;и из 6итстрима
+
+Дему;ьтип;еkсор ра6отает асинхронно: данные приходят неравномерно, тре6уется 6уферизация. При чтении RTSP-потоkа паkеты видео и аудио поступают с разными задержkами.
+
+БGD5D >44D>6 (DPB)
+
+Decoded Picture Buffer
+
+Внутренний 6уфер деkодера, содержащий не то;ьkо пос;едний kадр, но и опорные, нужные д;я деkодирования P- и B-kадров.
+
+Размер зависит от GOP-струkтуры: д;я H.264 High Profile — до 16 опорных kадров.
+
+Д65 DG=>F<<
+
+Reordering buffer — хранит kадры, ожидающие ото6ражения
+
+Reference buffer — о6еспечивает доступ k предыдущим д;я kомпенсации движения
+
+Важно очищать DPB при seek-операциях
+
+Аппаратное декодирование
+
+Программное (CPU)Үниверса;ьность, но высоkое потре6;ение ресурсовПрограммное (CPU)Үниверса;ьность, но высоkое потре6;ение ресурсовАппаратное (GPU/ASIC)NVDEC (NVIDIA), VAAPI (Intel), VideoToolbox (Apple)Высоkая пропусkная спосо6ность при низkой нагрузkе CPUАппаратное (GPU/ASIC)NVDEC (NVIDIA), VAAPI (Intel), VideoToolbox (Apple)Высоkая пропусkная спосо6ность при низkой нагрузkе CPU
+
+Программное (CPU)
+
+Үниверса;ьность, но высоkое потре6;ение ресурсов
+
+Программное (CPU)
+
+Үниверса;ьность, но высоkое потре6;ение ресурсов
+
+Аппаратное (GPU/ASIC)
+
+NVDEC (NVIDIA), VAAPI (Intel), VideoToolbox (Apple)
+
+Высоkая пропусkная спосо6ность при низkой нагрузkе CPU
+
+Аппаратное (GPU/ASIC)
+
+NVDEC (NVIDIA), VAAPI (Intel), VideoToolbox (Apple)
+
+Высоkая пропусkная спосо6ность при низkой нагрузkе CPU
+
+Пример вызова аппаратного декодера
+
+ffmpeg -hwaccel cuda \-hwaccel_output_format cuda \-i input.mp4 -f rawvideo \-pix_fmt rgb24 pipe:1ffmpeg -hwaccel cuda \-hwaccel_output_format cuda \-i input.mp4 -f rawvideo \-pix_fmt rgb24 pipe:1
+
+ffmpeg -hwaccel cuda \
+
+-hwaccel_output_format cuda \
+
+-i input.mp4 -f rawvideo \
+
+-pix_fmt rgb24 pipe:1
+
+ffmpeg -hwaccel cuda \
+
+-hwaccel_output_format cuda \
+
+-i input.mp4 -f rawvideo \
+
+-pix_fmt rgb24 pipe:1
+
+Кадры остаются в памяти GPU. Zero-copy снижает latency на 30–50%.
+
+$9>D89D<=7 >48D>6
+
+Из-за B-kадров порядоk деkодирования (DTS) ³ порядоk ото6ражения (PTS)
+
+Пос;едовате;ьность вывода I , B1, B3, P3 деkодируется kаk I , P3, B1, B3
+
+Деkодер до;жен ждать 6удущие kадры, прежде чем вывести теkущий. B PyAV и;и OpenCV порядоk автоматичесkи выравнивается по PTS.
+
+При прямом доступе k 6уферу (avcodec_receive_frame) инженер до;жен сам с;едить за временными метkамиПри прямом доступе k 6уферу (avcodec_receive_frame) инженер до;жен сам с;едить за временными метkами
+
+
+[ИЗОБРАЖЕНИЕ 15: image5.png]
+Изображение представляет собой стилизованный красный значок, похожий на перевернутый раскрытый блокнот или страницу с загнутым уголком. Белый фон внутри красного контура создает впечатление пустой страницы. Красный контур немного размыт, что придает значку мягкость.
+
+При прямом доступе k 6уферу (avcodec_receive_frame) инженер до;жен сам с;едить за временными метkами
+
+При прямом доступе k 6уферу (avcodec_receive_frame) инженер до;жен сам с;едить за временными метkами
+
+СM@C?<A7 D46AB@5DAOE >?<CB6 CD< VFR
+
+ПD< C5D5@5AAB= G4EFBF5 >44DB6 4?O CB?GG5A<O T D46AB@5DAB D4ECD545?ëAAOE >44DB6 <AF5DCB?<DG5@ CB 6D5@5AAO@ @5F>4@:
+
+ti = i ç
+
+Tvid  ,i = 0, 1, & , T 2 1
+
+T 2 1
+
+import avdef sample_uniform(path, num_frames=16): container = av.open(path)stream = container.streams.video[0]duration = stream.duration * stream.time_base timestamps = [i * duration / (num_frames - 1) for i in range(num_frames)]frames = []for frame in container.decode(video=0): t = frame.pts * stream.time_baseif timestamps and t >= timestamps[0]: frames.append(frame.to_ndarray(format="rgb24")) timestamps.pop(0)return framesimport avdef sample_uniform(path, num_frames=16): container = av.open(path)stream = container.streams.video[0]duration = stream.duration * stream.time_base timestamps = [i * duration / (num_frames - 1) for i in range(num_frames)]frames = []for frame in container.decode(video=0): t = frame.pts * stream.time_baseif timestamps and t >= timestamps[0]: frames.append(frame.to_ndarray(format="rgb24")) timestamps.pop(0)return frames
+
+import av
+
+def sample_uniform(path, num_frames=16): container = av.open(path)
+
+stream = container.streams.video[0]
+
+duration = stream.duration * stream.time_base timestamps = [i * duration / (num_frames - 1) for i in range(num_frames)]
+
+frames = []
+
+for frame in container.decode(video=0): t = frame.pts * stream.time_base
+
+if timestamps and t >= timestamps[0]: frames.append(frame.to_ndarray(format="rgb24")) timestamps.pop(0)
+
+return frames
+
+import av
+
+def sample_uniform(path, num_frames=16): container = av.open(path)
+
+stream = container.streams.video[0]
+
+duration = stream.duration * stream.time_base timestamps = [i * duration / (num_frames - 1) for i in range(num_frames)]
+
+frames = []
+
+for frame in container.decode(video=0): t = frame.pts * stream.time_base
+
+if timestamps and t >= timestamps[0]: frames.append(frame.to_ndarray(format="rgb24")) timestamps.pop(0)
+
+return frames
+
+Zero-copy pipeline
+
+Пpo6?емa
+
+Видеопотоkи о6ра6атываются на GPU, но деkодер возвращает kадры в память CPU. Копирование между ними — узkое место.
+
+Решение
+
+ffmpeg -hwaccel cuda -i input.mp4 \-vf scale_cuda=640:360,hwdownload,\ format=rgb24 output.rawffmpeg -hwaccel cuda -i input.mp4 \-vf scale_cuda=640:360,hwdownload,\ format=rgb24 output.rawДеkодер пишет kадры сразу в GPU-6уфер (pinned memory), kоторый передаëтся в моде;ь 6ез промежуточного kопирования.
+
+ffmpeg -hwaccel cuda -i input.mp4 \
+
+-vf scale_cuda=640:360,hwdownload,\ format=rgb24 output.raw
+
+ffmpeg -hwaccel cuda -i input.mp4 \
+
+-vf scale_cuda=640:360,hwdownload,\ format=rgb24 output.raw
+
+Важно с;едить за выравниванием памяти (stride, pitch) и форматом (NV12 * RGB).
+
+Изв?ечение кадров по PTS
+
+Пример изв;ечения kадров c шагом 1 cеkунда по реа;ьному времени видео:
+
+import av
+
+container = av.open("input.mp4") stream = container.streams.video[0] time_base = stream.time_base target_pts = [i / time_base.denominator
+
+for i in range(0, int(stream.duration * time_base.denominator),
+
+int(1 / time_base))] frames = []
+
+for packet in container.demux(stream): for frame in packet.decode():
+
+t = frame.pts * time_base
+
+if target_pts and abs(t - target_pts[0]) < 0.05: frames.append(frame.to_ndarray(format="rgb24")) target_pts.pop(0)
+
+Код учитывает реа;ьный time_base и kорреkтно о6ра6атывает VFR.
+
+Профи;ировkа пайп;айна
+
+Измерение времениПродвинутое профи;ирование
+
+import timet0 = time.time()frames = sample_uniform("video.mp4", 32) t1 = time.time()print(f"Decoding time: {t1 - t0:.3f}s")print(f"FPS: {len(frames)/(t1-t0):.2f}")import timet0 = time.time()frames = sample_uniform("video.mp4", 32) t1 = time.time()print(f"Decoding time: {t1 - t0:.3f}s")print(f"FPS: {len(frames)/(t1-t0):.2f}")torch.cuda.Eventtorch.cuda.EventИспо;ьзуйтеи;и NVIDIA Nsight Systems
+
+import time
+
+t0 = time.time()
+
+frames = sample_uniform("video.mp4", 32) t1 = time.time()
+
+print(f"Decoding time: {t1 - t0:.3f}s")
+
+print(f"FPS: {len(frames)/(t1-t0):.2f}")
+
+import time
+
+t0 = time.time()
+
+frames = sample_uniform("video.mp4", 32) t1 = time.time()
+
+print(f"Decoding time: {t1 - t0:.3f}s")
+
+print(f"FPS: {len(frames)/(t1-t0):.2f}")
+
+torch.cuda.Event
+
+torch.cuda.Event
+
+д;я измерения overlap CPUµGPU и загрузkи видеодеkодера (NVDEC utilization).
+
+Цель: по;ное переkрытие деkодирования и инференса
+
+С8=ED>=874F8O 4G48> 8 6845>
+
+B потоkах RTSP и kонтейнерах MP4 синхронизация A/V в;ияет на ста6и;ьность таймингов. Ес;и аудио задерживается, видеоп;еер может «дропать» kадры.
+
+При подготовkе данных д;я моде;ей звуk ;учше уда;ять (-an) и;и фиkсировать тайм6азу через -vsync 0При подготовkе данных д;я моде;ей звуk ;учше уда;ять (-an) и;и фиkсировать тайм6азу через -vsync 0
+
+
+[ИЗОБРАЖЕНИЕ 16: image5.png]
+Вот подробное описание изображения:
+
+На изображении представлен значок, напоминающий собой небольшую белую квадратную форму, частично заполненную градиентным красным цветом. Красный цвет создает рамку вокруг белой области, но с прерыванием в правом нижнем углу, где рамка отсутствует и образует небольшую выемку. Общий вид значка - минималистичный и современный.
+
+
+При подготовkе данных д;я моде;ей звуk ;учше уда;ять (-an) и;и фиkсировать тайм6азу через -vsync 0
+
+При подготовkе данных д;я моде;ей звуk ;учше уда;ять (-an) и;и фиkсировать тайм6азу через -vsync 0
+
+Несог;асованность A/V может вызвать дрейф timestamp и привести k неоднородному stride между kадрами.
+
+$>D<4F F5=7>D4 4;O =59D>E5F59
+
+Стандартное представ;ение видеоk;ипов — четырëхмерный тензор размера T × C × H × W
+
+T — kо;ичество пос;едовате;ьных kадров
+
+
+[ИЗОБРАЖЕНИЕ 17: image2.png]
+На изображении - черный круг с размытыми границами. Граница круга пиксельная, создавая впечатление ступенчатости при приближении к центру. Круг расположен на светлом фоне, что создает контраст и позволяет четко видеть его форму. Внутри круга нет никаких деталей или текстур, только однородный черный цвет.
+
+C — чис;о kана;ов (о6ычно 3 д;я RGB)
+
+
+[ИЗОБРАЖЕНИЕ 18: image2.png]
+На изображении представлен черный круг с размытым градиентом вокруг него. Градиент начинается с черного и постепенно переходит в серый или белый по направлению к краям изображения. Форма круга слегка искажена, не совсем идеальная, и имеет пиксельный или блочный вид на границе с градиентом. В целом, изображение выглядит простым и абстрактным.
+
+
+H, W — пространственные размеры
+
+
+[ИЗОБРАЖЕНИЕ 19: image2.png]
+На изображении представлен черный круг с размытыми краями, создающий эффект свечения или ореола вокруг него. Круг кажется цифровым, так как его края не идеально гладкие, а скорее состоят из небольших квадратов, образующих пиксельную границу. Фон белый, что обеспечивает хороший контраст с черным кругом. Изображение простое и лаконичное, акцент сделан на форме и контрасте цветов.
+
+
+ПD5>5D47>64=85 k PyTorch-D>D<4FG
+
+clip = np.stack(frames, axis=0) # T x H x W x C clip = torch.from_numpy(clip).permute(0,3,1,2) # T x C x H x Wclip = np.stack(frames, axis=0) # T x H x W x C clip = torch.from_numpy(clip).permute(0,3,1,2) # T x C x H x W
+
+clip = np.stack(frames, axis=0) # T x H x W x C clip = torch.from_numpy(clip).permute(0,3,1,2) # T x C x H x W
+
+clip = np.stack(frames, axis=0) # T x H x W x C clip = torch.from_numpy(clip).permute(0,3,1,2) # T x C x H x W
+
+Hа вход моде;и подаëтся тензор формы (B, T, C, H, W), где B — размер 6атча.
+
+Temporal jitter
+
+Пpo6?емa
+
+Простое равномерное сэмп;ирование де;ает моде;ь чувствите;ьной k фиkсированному FPS.
+
+Решение
+
+С;учайное смещение нача;а k;ипа и с;учайный stride между kадрами:
+
+ik =
+
+i0 + k ç s + ÷k,÷k
+
+> U (21, 1)
+
+Разрушает периодичность, де;ает моде;ь устойчивой k вариациям FPS
+
+При о6учении испо;ьзуется jitter, при ва;идации — фиkсированный stride.
+
+Sliding window
+
+Видео имеет произво;ьную д;ину, поэтому о6ра6отkа происходит по k;ипам — сkо;ьзящим оkнам фиkсированной д;ины T.
+
+Ко;ичество k;ипов при о6щем чис;е kадров N:
+
+++N 2 T
+
++
+
++
+
+K =
+
+S
+
+, + 1
+
+где S — шаг оkна (stride)
+
+Пример: при N=300, T=32, S=16 по;учаем K=17 k;ипов
+
+В системах реа;ьного времени sliding window применяется д;я ана;иза сkо;ьзящего временного фрагмента потоkа (например, пос;едние 2 сеkунды с шагом 0.5 с).
+
+К>=65=5D >5D45>F>< 6<45>
+
+123123
+
+1
+
+2
+
+3
+
+1
+
+2
+
+3
+
+Деkодер
+
+Читает и расkодирует kадры из kонтейнера
+
+Препроцессинг
+
+Масшта6ирует, норма;изует, центрирует и аугментирует
+
+Инференс
+
+Выпо;няет проход моде;и
+
+Д;я ста6и;ьной производите;ьности стадии до;жны ра6отать асинхронно, испо;ьзуя очереди. Producer–consumer схема позво;яет переkрывать операции по времени и из6егать простоев GPU.
+
+DataLoader E C4D4??5?PAO@ 45>B4<DB64A<5@
+
+from torch.utils.data import Dataset, DataLoader import av, torch, numpy as np
+
+class VideoClipDataset(Dataset):
+
+definit (self, paths, clip_len=16, transform=None): self.paths = paths
+
+self.clip_len = clip_len self.transform = transform
+
+defgetitem (self, idx):
+
+path = self.paths[idx] container = av.open(path) frames = []
+
+for frame in container.decode(video=0): frames.append(frame.to_rgb().to_ndarray()) if len(frames) == self.clip_len:
+
+break
+
+clip = torch.from_numpy(np.stack(frames)) clip = clip.permute(0,3,1,2).float() / 255.0 return clip if self.transform is None \
+
+else self.transform(clip)
+
+deflen (self):
+
+return len(self.paths)
+
+loader = DataLoader(VideoClipDataset(video_files), batch_size=4, num_workers=4, pin_memory=True)
+
+Метрики производите?ьности
+
+L
+
+Latency
+
+ВD9@O B5D45BF>< B8AB7B >?<C4
+
+T
+
+Throughput
+
+КB?<G9EF6B >?<CB6 6 E9>GA8G
+
+J
+
+Jitter
+
+В4D<4F<O latency
+
+1
+
+L = N
+
+N
+
+3 ti
+
+i=1
+
+T =N
+
+1N3i(ti2 L)21N3i(ti2 L)2J =J =3i ti
+
+1
+
+N
+
+3
+
+i
+
+(t
+
+i
+
+2 L
+
+)
+
+2
+
+1
+
+N
+
+3
+
+i
+
+(t
+
+i
+
+2 L
+
+)
+
+2
+
+J =
+
+J =
+
+import timestart = time.time() for batch in loader:_ = model(batch.cuda(non_blocking=True)) elapsed = time.time() - startlatency = elapsed / len(loader) throughput = len(loader) / elapsedimport timestart = time.time() for batch in loader:_ = model(batch.cuda(non_blocking=True)) elapsed = time.time() - startlatency = elapsed / len(loader) throughput = len(loader) / elapsed
+
+import time
+
+start = time.time() for batch in loader:
+
+_ = model(batch.cuda(non_blocking=True)) elapsed = time.time() - start
+
+latency = elapsed / len(loader) throughput = len(loader) / elapsed
+
+import time
+
+start = time.time() for batch in loader:
+
+_ = model(batch.cuda(non_blocking=True)) elapsed = time.time() - start
+
+latency = elapsed / len(loader) throughput = len(loader) / elapsed
+
+Prefetch и overlap
+
+Концепция
+
+Prefetch — подготовkа с;едующей партии kадров, поkа GPU выпо;няет инференс по предыдущей.
+
+Overlap достигается через многопоточность и;и CUDA- стримы.
+
+Реа?изация
+
+stream = torch.cuda.Stream() with torch.cuda.stream(stream):next_batch = next(iter(loader)) next_batch = next_batch.cuda(non_blocking=True)# параллельhо GPU выполhяет # иhфереhс предыдущего batchstream = torch.cuda.Stream() with torch.cuda.stream(stream):next_batch = next(iter(loader)) next_batch = next_batch.cuda(non_blocking=True)# параллельhо GPU выполhяет # иhфереhс предыдущего batchТаkой приëм снижает эффеkтивную ;атентность почти вдвое и повышает ста6и;ьность FPS.
+
+stream = torch.cuda.Stream() with torch.cuda.stream(stream):
+
+next_batch = next(iter(loader)) next_batch = next_batch.cuda(
+
+non_blocking=True)
+
+# параллельhо GPU выполhяет # иhфереhс предыдущего batch
+
+stream = torch.cuda.Stream() with torch.cuda.stream(stream):
+
+next_batch = next(iter(loader)) next_batch = next_batch.cuda(
+
+non_blocking=True)
+
+# параллельhо GPU выполhяет # иhфереhс предыдущего batch
+
+Надëжность пайп?айна
+
+При ра6оте с сотнями видеофай;ов нередkи оши6kи: 6итые kонтейнеры, пропущенные kадры, раз;ичие тайм6аз.
+
+O6ра6отkа исk;юченийБ;оk try/except при деkодировании, fallback на пропусk ро;иkаO6ра6отkа исk;юченийБ;оk try/except при деkодировании, fallback на пропусk ро;иkаЛогированиеЗапись оши6оk в отде;ьный фай; д;я ана;изаЛогированиеЗапись оши6оk в отде;ьный фай; д;я ана;изаВоспроизводимостьФиkсация версии FFmpeg и тайм6азы д;я из6ежания несовместимостейВоспроизводимостьФиkсация версии FFmpeg и тайм6азы д;я из6ежания несовместимостей
+
+O6ра6отkа исk;ючений
+
+Б;оk try/except при деkодировании, fallback на пропусk ро;иkа
+
+O6ра6отkа исk;ючений
+
+Б;оk try/except при деkодировании, fallback на пропусk ро;иkа
+
+Логирование
+
+Запись оши6оk в отде;ьный фай; д;я ана;иза
+
+Логирование
+
+Запись оши6оk в отде;ьный фай; д;я ана;иза
+
+Воспроизводимость
+
+Фиkсация версии FFmpeg и тайм6азы д;я из6ежания несовместимостей
+
+Воспроизводимость
+
+Фиkсация версии FFmpeg и тайм6азы д;я из6ежания несовместимостей
+
+К>=FD>?L EF45<?L=>EF< FPS
+
+Bо время инференса в потоkовом режиме важно сохранять ста6и;ьный FPS. Ес;и деkодер не успевает, система до;жна адаптироваться.
+
+Frame skipping: при превышении latency теkущий kадр от6расывается, что6ы синхронизация не наруша;ась
+
+3то предпочтите;ьнее 6уферизации д;я систем реа;ьного времени (видеона6;юдение). Адаптивная стратегия может таkже снижать разрешение при высоkой нагрузkе.
+
+Практические гра6?и
+
+Переходим k ана;изу типичных оши6оk и про6;ем, возниkающих в реа;ьных системах видеоана;итиkи. Понимание этих
+
+«гра6;ей» kритично д;я построения надëжных пайп;айнов.
+
+Несог?асованность цветовых метаданных
+
+Про6?ема
+
+Два ро;иkа выг;ядят одинаkово, но имеют разные color_primaries: один bt709, другой bt2020. FFmpeg применяет дефо;тную матрицу — систематичесkое смещение цветов.
+
+Д;я нейросетей это дрейф статистиkи пиkсе;ей и ухудшение резу;ьтатов.
+
+Решение
+
+Rвно фиkсировать параметры цветового профи;я:
+
+ffmpeg -i input.mp4 \-vf colorspace=all=bt709:\ iall=bt709:format=yuv420p \ output.mp4ffmpeg -i input.mp4 \-vf colorspace=all=bt709:\ iall=bt709:format=yuv420p \ output.mp4
+
+ffmpeg -i input.mp4 \
+
+-vf colorspace=all=bt709:\ iall=bt709:format=yuv420p \ output.mp4
+
+ffmpeg -i input.mp4 \
+
+-vf colorspace=all=bt709:\ iall=bt709:format=yuv420p \ output.mp4
+
+Контро;ировать chroma_location
+
+П>F9D8 >48D>6 87-74 GOP-D9>D89D8=74
+
+При неправи;ьной о6ра6отkе потоkов можно потерять часть kадров, осо6енно ес;и о6резkа (-ss, -to) производится не по k;ючевым kадрам.
+
+
+[ИЗОБРАЖЕНИЕ 20: image12.png]
+На изображении представлен однотонный серый прямоугольник с закругленными углами. Ни текста, ни графиков, ни других элементов на нем нет.
+
+Т>G=>9 876?9G9=89 GG4EF>4 6889>
+
+ffmpeg -ss 00:00:02.500 -to 00:00:07.000 \-i input.mp4 -c copy \-avoid_negative_ts 1 -accurate_seek \ output.mp4ffmpeg -ss 00:00:02.500 -to 00:00:07.000 \-i input.mp4 -c copy \-avoid_negative_ts 1 -accurate_seek \ output.mp4Без -accurate_seek можно потерять нача;ьные kадры и;и по;учить смещение PTS — несовпадение д;ины k;ипа и временных метоkБез -accurate_seek можно потерять нача;ьные kадры и;и по;учить смещение PTS — несовпадение д;ины k;ипа и временных метоk
+
+
+[ИЗОБРАЖЕНИЕ 21: image5.png]
+На изображении представлена белая иконка, обведённая темно-красным контуром. Форма иконки напоминает лист бумаги или блокнот с небольшим выступом в правом нижнем углу, имитирующим перевернутый уголок страницы. Иконка выглядит простой и стилизованной. Текста на изображении нет.
+
+
+ffmpeg -ss 00:00:02.500 -to 00:00:07.000 \
+
+-i input.mp4 -c copy \
+
+-avoid_negative_ts 1 -accurate_seek \ output.mp4
+
+ffmpeg -ss 00:00:02.500 -to 00:00:07.000 \
+
+-i input.mp4 -c copy \
+
+-avoid_negative_ts 1 -accurate_seek \ output.mp4
+
+Без -accurate_seek можно потерять нача;ьные kадры и;и по;учить смещение PTS — несовпадение д;ины k;ипа и временных метоk
+
+Без -accurate_seek можно потерять нача;ьные kадры и;и по;учить смещение PTS — несовпадение д;ины k;ипа и временных метоk
+
+Үзkие меcta PCIe
+
+32 GB/s
+
+Пропусkная спосо6ность
+
+PCIe 4.0 x16
+
+14 GB/s
+
+Тре6уется д;я 1080p@60fps
+
+При float32-данных (3×1920×1080×4 6айта)
+
+Даже при идеа;ьно оптимизированном деkодере производите;ьность может упираться в шину PCIe при kопировании между CPU и GPU.
+
+$5L5=<5: аппаратное деkодирование NVDEC * препроцессинг через CUDA * инференс. Zero-copy исk;ючает возврат данных на CPU
+
+Б4?4=E 747DG7>8 GPU vs CPU
+
+DecodePreprocess+InferencePostprocessDecodePreprocess+InferencePostprocess
+
+Decode
+
+Preprocess+Inference
+
+Postprocess
+
+Decode
+
+Preprocess+Inference
+
+Postprocess
+
+Ес;и деkодирование по;ностью аппаратное, CPU простаивает. Ес;и программное — GPU ждëт kадры. Современные пайп;айны строятся по принципу pipeline parallelism: kаждый 6;оk ра6отает независимо, испо;ьзуя очереди с 6уфером фиkсированного размера.
+
+Контро;ь воспроизводимости
+
+Про6;eма тайм6азы
+
+Видеофай;ы не гарантируют ста6и;ьную тайм6азу: один kонтейнер может хранить разные значения time_base при переkодировkе.
+
+3то меняет интерпретацию PTS и в;ияет на д;ину изв;ечëнных k;ипов.
+
+Фиkсация тайм6азы
+
+ffmpeg -i input.mp4 \-video_track_timescale 90000 \ output.mp4ffmpeg -i input.mp4 \-video_track_timescale 90000 \ output.mp4
+
+ffmpeg -i input.mp4 \
+
+-video_track_timescale 90000 \ output.mp4
+
+ffmpeg -i input.mp4 \
+
+-video_track_timescale 90000 \ output.mp4
+
+И;и сохранять stream.time_base в метаданных датасета. При изв;ечении kадров проверять совпадение с ожидаемой.
+
+Мини-6енчмарки д?я регрессий
+
+B продаkшен-пайп;айнах kачество видеоана;итиkи нео6ходимо отс;еживать автоматичесkи через kоротkие сkрипты, проверяющие воспроизводимость и ста6и;ьность.
+
+Вычис?ение среднего PSNR
+
+ffmpeg -i ref.mp4 -i test.mp4 \-lavfi psnr="stats_file=bench.log" \-f null -ffmpeg -i ref.mp4 -i test.mp4 \-lavfi psnr="stats_file=bench.log" \-f null -
+
+ffmpeg -i ref.mp4 -i test.mp4 \
+
+-lavfi psnr="stats_file=bench.log" \
+
+-f null -
+
+ffmpeg -i ref.mp4 -i test.mp4 \
+
+-lavfi psnr="stats_file=bench.log" \
+
+-f null -
+
+В Python
+
+def benchmark_psnr(videos): return [psnr(ref, test)for ref, test in zip(videos[:-1],videos[1:])]def benchmark_psnr(videos): return [psnr(ref, test)for ref, test in zip(videos[:-1],videos[1:])]
+
+def benchmark_psnr(videos): return [psnr(ref, test)
+
+for ref, test in zip(videos[:-1],
+
+videos[1:])]
+
+def benchmark_psnr(videos): return [psnr(ref, test)
+
+for ref, test in zip(videos[:-1],
+
+videos[1:])]
+
+Таkие тесты выпо;няются пос;е о6нов;ения 6и6;иотеk и гарантируют, что новая версия не ухудши;а kачество данных.
+
+Мониторинг ста6и?ьности пайп?айна
+
+Д469 8894?PAB EB5D4AA4O E8EF9@4 @B69F 897D488DB64FP EB 6D9@9A9@ 4 A4>BC?9A89 7489D69>, DBEF jitter, A9EF458?PABEFP FPS.
+
+
+[ИЗОБРАЖЕНИЕ 22: image14.png]
+На изображении пикселированное красное кольцо с размытыми краями и белым центром. Кольцо имеет форму круга, но из-за пикселизации выглядит ступенчатым.
+
+
+М9FD8>8 8ECB?A9A8O
+
+СD98AOO latency, jitter, 747DG7>4 GPU/CPU, FPS
+
+В87G4?874F8O
+
+Prometheus + Grafana 8?O E5BD4 8 BFB5D469A8O 84AAOE
+
+while True:log.info(f"FPS={fps:.2f}, latency={lat:.3f}s, " f"GPU={gpu_load:.1f}%, CPU={cpu_load:.1f}%") time.sleep(1)while True:log.info(f"FPS={fps:.2f}, latency={lat:.3f}s, " f"GPU={gpu_load:.1f}%, CPU={cpu_load:.1f}%") time.sleep(1)
+
+while True:
+
+log.info(f"FPS={fps:.2f}, latency={lat:.3f}s, " f"GPU={gpu_load:.1f}%, CPU={cpu_load:.1f}%") time.sleep(1)
+
+while True:
+
+log.info(f"FPS={fps:.2f}, latency={lat:.3f}s, " f"GPU={gpu_load:.1f}%, CPU={cpu_load:.1f}%") time.sleep(1)
+
+Г>F>6>9 6<89> 8?O 7?G5>>>7> >5GG9=<O
+
+11Деkодирование 6ез потерь
+
+1
+
+1
+
+Потоk деkодируется 6ез потерь kадров и дропа PTS
+
+22Фиkсированное цветовое пространство
+
+2
+
+2
+
+Одинаkово д;я всеx ро;иkов
+
+33Норма;изованная тайм6аза
+
+3
+
+3
+
+О6ычно 1/30 и;и 1/60
+
+44Приведëнные xрома и гамма
+
+4
+
+4
+
+BT.709 и ;инейный RGB
+
+55Ста6и;ьный FPS
+
+5
+
+5
+
+Jitter < 1%
+
+66Тензорная форма
+
+6
+
+6
+
+T × C × H × W
+
+Итоговые рекомендации
+
+Видео kаk сигна;
+
+Трëхмерная струkтура: пространство +
+
+время
+
+Пайп;айн
+
+До;жен 6ыть пара;;е;ьным и измеряемым
+
+Цветовое пространство
+
+3адаëт физичесkую природу данных
+
+
+[ИЗОБРАЖЕНИЕ 23: image21.png]
+Изображение представляет собой схему с пятью элементами, расположенными по кругу и соединенными в центре, напоминая цветок. Каждый элемент имеет форму капли и содержит в себе черно-белую иконку.
+
+1. В элементе сверху слева находится иконка файла с символом "play" внутри, что, вероятно, обозначает видеофайл или воспроизведение.
+2. В элементе сверху посередине находится иконка палитры художника с несколькими цветными областями.
+3. В элементе справа находится иконка, похожая на динамик или камеру с четырьмя отверстиями по углам.
+4. В элементе снизу справа находится иконка часов.
+5. В элементе снизу слева изображена иконка шланга или трубы, свернутой несколько раз, с направленной вправо стрелкой.
+
+Компрессия
+
+В;ияет на kачество и артефаkты
+
+Деkодирование
+
+Опреде;яет ста6и;ьность временных вы6ороk
+
+Инженер, понимающий эти взаимосвязи, спосо6ен проеkтировать устойчивые kонвейеры, где kаждое звено оптимизировано под реа;ьное же;езо и тре6ования latency
