@@ -1,0 +1,22 @@
+# Основные зависимости для PyTorch
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Обработка видео
+av>=10.0.0
+opencv-python>=4.8.0
+
+# Научные вычисления и визуализация
+numpy>=1.24.0
+matplotlib>=3.7.0
+pillow>=10.0.0
+
+# Профилирование и утилиты
+tensorboard>=2.13.0
+tqdm>=4.65.0
+
+# Опционально: decord для аппаратного декодирования (задача 7)
+# Если pip install не работает, попробуйте:
+# - conda install -c conda-forge decord
+# - или установите decord2: pip install decord2
+# decord>=0.6.0
