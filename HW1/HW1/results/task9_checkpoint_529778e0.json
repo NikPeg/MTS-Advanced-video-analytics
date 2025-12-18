@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "batch_size": 2,
+      "prefetch_factor": 1,
+      "mean_fps": 40430.3645591333,
+      "cv": 0.16847093087083703
+    },
+    {
+      "batch_size": 2,
+      "prefetch_factor": 2,
+      "mean_fps": 39684.073515918804,
+      "cv": 0.17513923008764698
+    },
+    {
+      "batch_size": 2,
+      "prefetch_factor": 4,
+      "mean_fps": 39883.06539069515,
+      "cv": 0.1690580831094497
+    },
+    {
+      "batch_size": 4,
+      "prefetch_factor": 1,
+      "mean_fps": 44667.48086380516,
+      "cv": 0.19549699974539864
+    }
+  ],
+  "timestamp": 1766077512.221534
+}

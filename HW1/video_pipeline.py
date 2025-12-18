@@ -8,6 +8,8 @@ import time
 import queue
 import threading
 import multiprocessing
+import json
+import hashlib
 from collections import deque
 from typing import List, Tuple, Optional, Callable
 import numpy as np
@@ -323,10 +325,57 @@ def measure_throughput(dataloader: DataLoader, num_iterations: int = 10) -> Tupl
     return mean_fps, np.std([fc / t for fc, t in zip(frame_counts, times)])
 
 
-def task3_parallel_loading(video_files: List[str], output_dir: str = "HW1/results"):
-    """Задача 3: Измерение throughput при разных num_workers."""
+def task3_parallel_loading(video_files: List[str], output_dir: str = "HW1/results", force_rerun: bool = False):
+    """Задача 3: Измерение throughput при разных num_workers.
+    
+    Args:
+        video_files: список путей к видеофайлам
+        output_dir: директория для сохранения результатов
+        force_rerun: если True, перезапускает измерения даже если есть сохраненные результаты
+    """
     os.makedirs(output_dir, exist_ok=True)
     
+    # Создаем уникальный ключ для чекпоинта на основе параметров
+    config_hash = hashlib.md5(
+        (str(sorted(video_files)) + "16_2_4_5").encode()
+    ).hexdigest()[:8]
+    checkpoint_file = f"{output_dir}/task3_checkpoint_{config_hash}.json"
+    
+    # Пытаемся загрузить сохраненные результаты
+    if not force_rerun and os.path.exists(checkpoint_file):
+        try:
+            with open(checkpoint_file, 'r') as f:
+                saved_data = json.load(f)
+                results = [(r['workers'], r['mean_fps'], r['std_fps']) for r in saved_data['results']]
+                print(f"✓ Loaded checkpoint from {checkpoint_file}")
+                print(f"  Previous results: {len(results)} configurations")
+                
+                # Проверяем, что все конфигурации есть
+                num_workers_list = [1, 2, 4, 8]
+                if len(results) == len(num_workers_list):
+                    # Выводим результаты и строим график
+                    workers, fps_values, _ = zip(*results)
+                    
+                    plt.figure(figsize=(10, 6))
+                    plt.plot(workers, fps_values, 'o-', linewidth=2, markersize=8)
+                    plt.xlabel('Number of Workers', fontsize=12)
+                    plt.ylabel('Throughput (FPS)', fontsize=12)
+                    plt.title('Throughput vs Number of Workers', fontsize=14)
+                    plt.grid(True, alpha=0.3)
+                    plt.savefig(f"{output_dir}/task3_throughput.png", dpi=150, bbox_inches='tight')
+                    plt.close()
+                    
+                    print(f"\nResults saved to {output_dir}/task3_throughput.png")
+                    
+                    max_fps = max(fps_values)
+                    saturation_workers = next((w for w, f in zip(workers, fps_values) if f >= 0.95 * max_fps), workers[-1])
+                    print(f"Saturation point: {saturation_workers} workers")
+                    
+                    return results
+        except Exception as e:
+            print(f"Warning: Failed to load checkpoint: {e}. Running fresh measurements...")
+    
+    # Выполняем измерения
     transform = transforms_v2.Compose([
         transforms_v2.ToImage(),
         transforms_v2.Resize((224, 224)),
@@ -351,6 +400,17 @@ def task3_parallel_loading(video_files: List[str], output_dir: str = "HW1/result
         mean_fps, std_fps = measure_throughput(dataloader, num_iterations=5)
         results.append((num_workers, mean_fps, std_fps))
         print(f"  ✓ Mean FPS: {mean_fps:.2f} ± {std_fps:.2f}")
+        
+        # Сохраняем промежуточные результаты после каждой конфигурации
+        checkpoint_data = {
+            'results': [
+                {'workers': w, 'mean_fps': float(fps), 'std_fps': float(std)}
+                for w, fps, std in results
+            ],
+            'timestamp': time.time()
+        }
+        with open(checkpoint_file, 'w') as f:
+            json.dump(checkpoint_data, f, indent=2)
     
     # Построение графика
     workers, fps_values, _ = zip(*results)
@@ -365,6 +425,7 @@ def task3_parallel_loading(video_files: List[str], output_dir: str = "HW1/result
     plt.close()
     
     print(f"\nResults saved to {output_dir}/task3_throughput.png")
+    print(f"Checkpoint saved to {checkpoint_file}")
     
     # Определение точки насыщения
     max_fps = max(fps_values)
@@ -427,12 +488,15 @@ def task4_profiling(video_files: List[str], output_dir: str = "HW1/results"):
     
     for event in key_averages:
         name = event.key.lower()
+        # cpu_time_total уже в микросекундах, делим на 1000 для миллисекунд
+        cpu_time_ms = event.cpu_time_total / 1000 if hasattr(event, 'cpu_time_total') else 0
+        
         if 'read_clip' in name or 'decode' in name:
-            decode_time += event.cpu_time_total_us / 1000  # мс
+            decode_time += cpu_time_ms
         elif 'transform' in name or 'resize' in name or 'normalize' in name:
-            prep_time += event.cpu_time_total_us / 1000
+            prep_time += cpu_time_ms
         elif 'mean' in name or 'model' in name:
-            infer_time += event.cpu_time_total_us / 1000
+            infer_time += cpu_time_ms
     
     total_time = decode_time + prep_time + infer_time
     if total_time > 0:
@@ -447,9 +511,41 @@ def task4_profiling(video_files: List[str], output_dir: str = "HW1/results"):
 # Задача 5: Prefetch и pinned memory
 # ============================================================================
 
-def task5_prefetch_pinned_memory(video_files: List[str], output_dir: str = "HW1/results"):
-    """Задача 5: Сравнение с/без prefetch и pinned memory."""
+def task5_prefetch_pinned_memory(video_files: List[str], output_dir: str = "HW1/results", force_rerun: bool = False):
+    """Задача 5: Сравнение с/без prefetch и pinned memory.
+    
+    Args:
+        video_files: список путей к видеофайлам
+        output_dir: директория для сохранения результатов
+        force_rerun: если True, перезапускает измерения даже если есть сохраненные результаты
+    """
     os.makedirs(output_dir, exist_ok=True)
+    
+    # Создаем уникальный ключ для чекпоинта
+    config_hash = hashlib.md5(
+        (str(sorted(video_files)) + "16_2_4_10").encode()
+    ).hexdigest()[:8]
+    checkpoint_file = f"{output_dir}/task5_checkpoint_{config_hash}.json"
+    
+    # Пытаемся загрузить сохраненные результаты
+    if not force_rerun and os.path.exists(checkpoint_file):
+        try:
+            with open(checkpoint_file, 'r') as f:
+                saved_data = json.load(f)
+                results = [(r['name'], r['mean_fps'], r['std_fps'], r['jitter']) for r in saved_data['results']]
+                print(f"✓ Loaded checkpoint from {checkpoint_file}")
+                print(f"  Previous results: {len(results)} configurations")
+                
+                # Выводим результаты
+                print("\n" + "="*60)
+                print("Comparison Results:")
+                print("="*60)
+                for name, mean_fps, std_fps, jitter in results:
+                    print(f"{name:20s} | FPS: {mean_fps:7.2f} ± {std_fps:6.2f} | Jitter: {jitter:.4f}")
+                
+                return results
+        except Exception as e:
+            print(f"Warning: Failed to load checkpoint: {e}. Running fresh measurements...")
     
     transform = transforms_v2.Compose([
         transforms_v2.ToImage(),
@@ -500,6 +596,17 @@ def task5_prefetch_pinned_memory(video_files: List[str], output_dir: str = "HW1/
         results.append((name, mean_fps, std_fps, jitter))
         print(f"  Mean FPS: {mean_fps:.2f} ± {std_fps:.2f}")
         print(f"  Jitter: {jitter:.4f}")
+        
+        # Сохраняем промежуточные результаты
+        checkpoint_data = {
+            'results': [
+                {'name': n, 'mean_fps': float(fps), 'std_fps': float(std), 'jitter': float(j)}
+                for n, fps, std, j in results
+            ],
+            'timestamp': time.time()
+        }
+        with open(checkpoint_file, 'w') as f:
+            json.dump(checkpoint_data, f, indent=2)
     
     # Вывод результатов
     print("\n" + "="*60)
@@ -508,6 +615,7 @@ def task5_prefetch_pinned_memory(video_files: List[str], output_dir: str = "HW1/
     for name, mean_fps, std_fps, jitter in results:
         print(f"{name:20s} | FPS: {mean_fps:7.2f} ± {std_fps:6.2f} | Jitter: {jitter:.4f}")
     
+    print(f"\nCheckpoint saved to {checkpoint_file}")
     return results
 
 
@@ -738,7 +846,7 @@ def task8_gpu_preprocessing(video_files: List[str], output_dir: str = "HW1/resul
     """Задача 8: Сравнение CPU и GPU препроцессинга."""
     os.makedirs(output_dir, exist_ok=True)
     
-    dataset = VideoDataset(video_files, clip_len=16, stride=2, transform=None)
+    video_file = video_files[0]  # Используем первое видео
     
     # CPU препроцессинг
     cpu_transform = transforms_v2.Compose([
@@ -764,18 +872,23 @@ def task8_gpu_preprocessing(video_files: List[str], output_dir: str = "HW1/resul
     prep_times = []
     infer_times = []
     
-    for i, clip in enumerate(dataset):
-        if i >= 10:
-            break
-        
-        # Декодирование (уже сделано в dataset)
+    for i in range(10):
+        # Декодирование
         decode_start = time.time()
-        clip_tensor = torch.from_numpy(clip).permute(0, 3, 1, 2)  # (T, C, H, W)
+        clip = read_clip(video_file, start=i*32, num_frames=16, stride=2, verbose=False)
+        if len(clip) == 0:
+            continue
         decode_time = time.time() - decode_start
         
         # Препроцессинг
         prep_start = time.time()
-        processed = cpu_transform(clip_tensor)
+        # Применяем transform к каждому кадру (clip имеет форму (T, H, W, 3))
+        processed_frames = []
+        for frame_idx in range(clip.shape[0]):
+            frame = clip[frame_idx]  # (H, W, 3) numpy array uint8
+            processed_frame = cpu_transform(frame)
+            processed_frames.append(processed_frame)
+        processed = torch.stack(processed_frames, dim=0)  # (T, C, H, W)
         prep_time = time.time() - prep_start
         
         # Инференс
@@ -796,24 +909,37 @@ def task8_gpu_preprocessing(video_files: List[str], output_dir: str = "HW1/resul
     print(f"  Infer: {cpu_infer:.2f} ms")
     
     # GPU вариант
-    if torch.cuda.is_available():
-        print("\nTesting GPU preprocessing...")
+    device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
+    if device != 'cpu':
+        print(f"\nTesting GPU preprocessing (device: {device})...")
         decode_times_gpu = []
         prep_times_gpu = []
         infer_times_gpu = []
         
-        for i, clip in enumerate(dataset):
-            if i >= 10:
-                break
-            
+        for i in range(10):
+            # Декодирование
             decode_start = time.time()
-            clip_tensor = torch.from_numpy(clip).permute(0, 3, 1, 2).cuda()
+            clip = read_clip(video_file, start=i*32, num_frames=16, stride=2, verbose=False)
+            if len(clip) == 0:
+                continue
             decode_time = time.time() - decode_start
             
+            # Препроцессинг
             prep_start = time.time()
-            processed = gpu_transform(clip_tensor)
+            # Применяем transform к каждому кадру (clip имеет форму (T, H, W, 3))
+            processed_frames = []
+            for frame_idx in range(clip.shape[0]):
+                frame = clip[frame_idx]  # (H, W, 3) numpy array uint8
+                processed_frame = gpu_transform(frame)
+                if device == 'cuda':
+                    processed_frame = processed_frame.cuda()
+                elif device == 'mps':
+                    processed_frame = processed_frame.to('mps')
+                processed_frames.append(processed_frame)
+            processed = torch.stack(processed_frames, dim=0)  # (T, C, H, W)
             prep_time = time.time() - prep_start
             
+            # Инференс
             infer_start = time.time()
             result = model(processed)
             infer_time = time.time() - infer_start
@@ -867,9 +993,76 @@ def task8_gpu_preprocessing(video_files: List[str], output_dir: str = "HW1/resul
 # Задача 9: Измерение стабильности FPS
 # ============================================================================
 
-def task9_fps_stability(video_files: List[str], output_dir: str = "HW1/results"):
-    """Задача 9: Измерение стабильности FPS."""
+def task9_fps_stability(video_files: List[str], output_dir: str = "HW1/results", force_rerun: bool = False):
+    """Задача 9: Измерение стабильности FPS.
+    
+    Args:
+        video_files: список путей к видеофайлам
+        output_dir: директория для сохранения результатов
+        force_rerun: если True, перезапускает измерения даже если есть сохраненные результаты
+    """
     os.makedirs(output_dir, exist_ok=True)
+    
+    # Создаем уникальный ключ для чекпоинта
+    config_hash = hashlib.md5(
+        (str(sorted(video_files)) + "16_2_2_4_8_1_2_4_100").encode()
+    ).hexdigest()[:8]
+    checkpoint_file = f"{output_dir}/task9_checkpoint_{config_hash}.json"
+    
+    # Пытаемся загрузить сохраненные результаты
+    if not force_rerun and os.path.exists(checkpoint_file):
+        try:
+            with open(checkpoint_file, 'r') as f:
+                saved_data = json.load(f)
+                results = [(r['batch_size'], r['prefetch_factor'], r['mean_fps'], r['cv']) 
+                           for r in saved_data['results']]
+                print(f"✓ Loaded checkpoint from {checkpoint_file}")
+                print(f"  Previous results: {len(results)} configurations")
+                
+                # Строим графики и выводим результаты
+                batch_sizes = [2, 4, 8]
+                
+                # График FPS
+                fig, ax = plt.subplots(figsize=(12, 6))
+                for batch_size in batch_sizes:
+                    fps_values = [fps for bs, pf, fps, cv in results if bs == batch_size]
+                    prefetch_values = [pf for bs, pf, fps, cv in results if bs == batch_size]
+                    if fps_values:
+                        ax.plot(prefetch_values, fps_values, 'o-', label=f'Batch={batch_size}', linewidth=2)
+                ax.set_xlabel('Prefetch Factor', fontsize=12)
+                ax.set_ylabel('FPS', fontsize=12)
+                ax.set_title('FPS Stability Analysis', fontsize=14)
+                ax.legend()
+                ax.grid(True, alpha=0.3)
+                plt.savefig(f"{output_dir}/task9_fps_stability.png", dpi=150, bbox_inches='tight')
+                plt.close()
+                
+                # График CV
+                fig, ax = plt.subplots(figsize=(12, 6))
+                for batch_size in batch_sizes:
+                    cv_values = [cv for bs, pf, fps, cv in results if bs == batch_size]
+                    prefetch_values = [pf for bs, pf, fps, cv in results if bs == batch_size]
+                    if cv_values:
+                        ax.plot(prefetch_values, cv_values, 'o-', label=f'Batch={batch_size}', linewidth=2)
+                ax.axhline(y=0.05, color='r', linestyle='--', label='Stability threshold (CV=0.05)')
+                ax.set_xlabel('Prefetch Factor', fontsize=12)
+                ax.set_ylabel('Coefficient of Variation (CV)', fontsize=12)
+                ax.set_title('FPS Stability (CV)', fontsize=14)
+                ax.legend()
+                ax.grid(True, alpha=0.3)
+                plt.savefig(f"{output_dir}/task9_fps_cv.png", dpi=150, bbox_inches='tight')
+                plt.close()
+                
+                # Определение стабильных конфигураций
+                stable_configs = [(bs, pf, fps, cv) for bs, pf, fps, cv in results if cv < 0.05]
+                print(f"\nStable configurations (CV < 0.05): {len(stable_configs)}")
+                for bs, pf, fps, cv in stable_configs:
+                    print(f"  Batch={bs}, Prefetch={pf}: FPS={fps:.2f}, CV={cv:.4f}")
+                
+                print(f"\nResults saved to {output_dir}/task9_fps_stability.png and task9_fps_cv.png")
+                return results
+        except Exception as e:
+            print(f"Warning: Failed to load checkpoint: {e}. Running fresh measurements...")
     
     transform = transforms_v2.Compose([
         transforms_v2.ToImage(),
@@ -930,6 +1123,17 @@ def task9_fps_stability(video_files: List[str], output_dir: str = "HW1/results")
                 
                 print(f"  ✓ Batch={batch_size}, Prefetch={prefetch_factor}: "
                       f"FPS={mean_fps:.2f}, CV={cv:.4f} {'✓' if cv < 0.05 else '✗'}")
+                
+                # Сохраняем промежуточные результаты
+                checkpoint_data = {
+                    'results': [
+                        {'batch_size': bs, 'prefetch_factor': pf, 'mean_fps': float(fps), 'cv': float(cv)}
+                        for bs, pf, fps, cv in results
+                    ],
+                    'timestamp': time.time()
+                }
+                with open(checkpoint_file, 'w') as f:
+                    json.dump(checkpoint_data, f, indent=2)
     
     # График FPS
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -972,6 +1176,7 @@ def task9_fps_stability(video_files: List[str], output_dir: str = "HW1/results")
         print(f"  Batch={bs}, Prefetch={pf}: FPS={fps:.2f}, CV={cv:.4f}")
     
     print(f"\nResults saved to {output_dir}/task9_fps_stability.png and task9_fps_cv.png")
+    print(f"Checkpoint saved to {checkpoint_file}")
     
     return results
 
@@ -1018,7 +1223,7 @@ class RealTimePipeline:
             video_stream = container.streams.video[0]
             cap = None
         
-        frame_buffer = deque(maxsize=self.clip_len * self.stride)
+        frame_buffer = deque(maxlen=self.clip_len * self.stride)
         
         try:
             if cap is None:
@@ -1081,11 +1286,18 @@ class RealTimePipeline:
                 start_time = time.time()
                 
                 # Препроцессинг
-                clip_tensor = torch.from_numpy(clip).permute(0, 3, 1, 2)  # (T, C, H, W)
-                if device == 'cuda':
-                    clip_tensor = clip_tensor.cuda()
+                # Применяем transform к каждому кадру отдельно
+                processed_frames = []
+                for frame_idx in range(clip.shape[0]):
+                    frame = clip[frame_idx]  # (H, W, 3) numpy array uint8
+                    processed_frame = transform(frame)
+                    processed_frames.append(processed_frame)
+                processed = torch.stack(processed_frames, dim=0)  # (T, C, H, W)
                 
-                processed = transform(clip_tensor)
+                if device == 'cuda':
+                    processed = processed.cuda()
+                elif device == 'mps':
+                    processed = processed.to('mps')
                 
                 # Инференс
                 result = self.model(processed)
@@ -1298,6 +1510,7 @@ def main():
     parser.add_argument('--task', type=int, choices=range(1, 11), help='Task number (1-10)')
     parser.add_argument('--output', type=str, default='HW1/results', help='Output directory')
     parser.add_argument('--all', action='store_true', help='Run all tasks')
+    parser.add_argument('--force', action='store_true', help='Force rerun even if checkpoint exists')
     
     args = parser.parse_args()
     
@@ -1348,7 +1561,7 @@ def main():
         print("\n" + "="*60)
         print("Task 3: Parallel loading")
         print("="*60)
-        task3_parallel_loading(video_files, output_dir)
+        task3_parallel_loading(video_files, output_dir, force_rerun=args.force)
         
         print("\n" + "="*60)
         print("Task 4: Profiling")
@@ -1358,7 +1571,7 @@ def main():
         print("\n" + "="*60)
         print("Task 5: Prefetch and pinned memory")
         print("="*60)
-        task5_prefetch_pinned_memory(video_files, output_dir)
+        task5_prefetch_pinned_memory(video_files, output_dir, force_rerun=args.force)
         
         print("\n" + "="*60)
         print("Task 6: Pipeline overlap")
@@ -1378,7 +1591,7 @@ def main():
         print("\n" + "="*60)
         print("Task 9: FPS stability")
         print("="*60)
-        task9_fps_stability(video_files, output_dir)
+        task9_fps_stability(video_files, output_dir, force_rerun=args.force)
         
         print("\n" + "="*60)
         print("Task 10: Real-time pipeline")
@@ -1404,11 +1617,11 @@ def main():
             print(f"Clip shape: {clip.shape}")
             print(f"Clip dtype: {clip.dtype}")
         elif args.task == 3:
-            task3_parallel_loading(video_files, output_dir)
+            task3_parallel_loading(video_files, output_dir, force_rerun=args.force)
         elif args.task == 4:
             task4_profiling(video_files, output_dir)
         elif args.task == 5:
-            task5_prefetch_pinned_memory(video_files, output_dir)
+            task5_prefetch_pinned_memory(video_files, output_dir, force_rerun=args.force)
         elif args.task == 6:
             task6_pipeline_overlap(video_path, output_dir)
         elif args.task == 7:
@@ -1416,7 +1629,7 @@ def main():
         elif args.task == 8:
             task8_gpu_preprocessing(video_files, output_dir)
         elif args.task == 9:
-            task9_fps_stability(video_files, output_dir)
+            task9_fps_stability(video_files, output_dir, force_rerun=args.force)
         elif args.task == 10:
             task10_realtime_pipeline(video_path, output_dir)
     else:
