@@ -1,0 +1,60 @@
+{
+  "video_info": {
+    "path": "../HW1/tall.mp4",
+    "frames": 100,
+    "fps": 30.0,
+    "resolution": "1080x1920"
+  },
+  "model": "DeepLabV3-ResNet50",
+  "target_class": "person",
+  "methods": [
+    "Original (No Smoothing)",
+    "Temporal Averaging (window=5)",
+    "Median Filtering (window=5)",
+    "Exponential Smoothing (alpha=0.3)"
+  ],
+  "metrics": [
+    {
+      "method": "Original",
+      "mean_iou": 0.9617611169815063,
+      "std_iou": 0.04025299847126007,
+      "mean_variance": 0.020428918302059174,
+      "std_variance": 0.01913546212017536,
+      "mean_flickering": 0.0072382145139668315,
+      "std_flickering": 0.0045380474422584425
+    },
+    {
+      "method": "Temporal Averaging",
+      "mean_iou": 0.9782512187957764,
+      "std_iou": 0.01939934678375721,
+      "mean_variance": 0.011031192727386951,
+      "std_variance": 0.005219537299126387,
+      "mean_flickering": 0.007298320785010598,
+      "std_flickering": 0.0031196238419777807
+    },
+    {
+      "method": "Median Filtering",
+      "mean_iou": 0.9782151579856873,
+      "std_iou": 0.028897788375616074,
+      "mean_variance": 0.011252504773437977,
+      "std_variance": 0.013639404438436031,
+      "mean_flickering": 0.005022081345866069,
+      "std_flickering": 0.0033747876327203967
+    },
+    {
+      "method": "Exponential Smoothing",
+      "mean_iou": 0.9782107472419739,
+      "std_iou": 0.017508210614323616,
+      "mean_variance": 0.010549450293183327,
+      "std_variance": 0.00515922112390399,
+      "mean_flickering": 0.007048387033919442,
+      "std_flickering": 0.00311446007268497
+    }
+  ],
+  "best_method": "Exponential Smoothing",
+  "improvement": {
+    "iou_increase": "0.0164",
+    "variance_reduction": "0.009879",
+    "flickering_reduction": "0.000190"
+  }
+}

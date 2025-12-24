@@ -10,15 +10,18 @@
 
 ```
 HW2/
-├── video_segmentation.ipynb   # Основной jupyter notebook с реализацией
-├── results/                    # Результаты экспериментов
-│   ├── first_frame.png        # Первый кадр видео
-│   ├── original_masks.png     # Визуализация исходных масок
-│   ├── metrics_comparison.png # Сравнение метрик
-│   ├── comparison_best.png    # Сравнение до/после сглаживания
-│   ├── metrics.json           # Метрики в JSON формате
-│   └── summary.json           # Итоговая сводка
-└── README.md                   # Этот файл
+├── video_segmentation.ipynb      # Основной jupyter notebook с реализацией
+├── results/                       # Результаты экспериментов
+│   ├── first_frame.png           # Первый кадр видео
+│   ├── original_masks.png        # Визуализация исходных масок
+│   ├── metrics_comparison.png    # Сравнение метрик
+│   ├── comparison_best.png       # Сравнение до/после сглаживания
+│   ├── video_original_masks.mp4  # 🎬 Видео с исходными масками
+│   ├── video_smoothed_masks.mp4  # 🎬 Видео со сглаженными масками
+│   ├── masks_checkpoint.pkl      # Кэш масок для быстрого перезапуска
+│   ├── metrics.json              # Метрики в JSON формате
+│   └── summary.json              # Итоговая сводка
+└── README.md                      # Этот файл
 ```
 
 ## Пайплайн
@@ -101,6 +104,8 @@ smoothed_mask[t] = α * mask[t] + (1-α) * smoothed_mask[t-1]
 - `original_masks.png` - Покадровые маски без сглаживания
 - `metrics_comparison.png` - Графики всех метрик для 4 методов
 - `comparison_best.png` - Сравнение до/после для лучшего метода
+- `video_original_masks.mp4` - 🎬 Видео с исходными масками
+- `video_smoothed_masks.mp4` - 🎬 Видео со сглаженными масками
 
 ## Инженерный вывод
 
@@ -153,8 +158,11 @@ pip install torch torchvision opencv-python numpy matplotlib scipy tqdm
 ## Технические детали
 
 - **Устройство**: CPU/GPU (автоматически определяется)
-- **Время выполнения**: ~5-10 минут на 100 кадров (зависит от железа)
+- **Время выполнения**: 
+  - Первый запуск: ~5-10 минут на 100 кадров
+  - Повторный запуск: ~30 секунд (используется кэш масок)
 - **Память**: ~2GB GPU memory / ~4GB RAM для CPU
+- **Кэширование**: Маски автоматически сохраняются в `results/masks_checkpoint.pkl`
 
 ## Критерии оценки
 
